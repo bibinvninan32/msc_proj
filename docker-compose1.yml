@@ -1,0 +1,26 @@
+version: '3'
+services:
+  ovs_container:
+    container_name: ubun_cont_ovs1
+    image: bibinvninan/ovs:ovs_installed_ubuntu
+    #command: tail -f /dev/null
+    cap_add:
+      - NET_ADMIN
+    command: ["sleep","infinity"]
+    network_mode: none
+
+  ubuntu_container1:
+    container_name: ubuntu_red
+    image: bibinvninan/ubuntu_updated:no_interface
+    command: ["sleep","infinity"]
+    cap_add:
+      - NET_ADMIN
+    network_mode: none
+
+  ubuntu_container2:
+    container_name: ubuntu_blue
+    image: bibinvninan/ubuntu_updated:no_interface
+    cap_add:
+      - NET_ADMIN
+    command: ["sleep","infinity"]
+    network_mode: none
